@@ -3,7 +3,8 @@
     <dimen name="text_input_margin">20dp</dimen>
     <dimen name="text_input_padding">20dp</dimen>
     <dimen name="card_margin">20dp</dimen>
-    <dimen name="text_input_gap">13dp</dimen>
+    <dimen name="card_margin_top">30dp</dimen>
+    <dimen name="text_input_gap">10dp</dimen>
     <dimen name="button_margin_top">20dp</dimen>
     <dimen name="button_min_width">150dp</dimen>
 </resources>
