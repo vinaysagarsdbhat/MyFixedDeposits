@@ -1,9 +1,10 @@
-package com.vinay.myfixeddeposits.view;
+package com.vinay.myfixeddeposits.view.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,6 +15,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.vinay.myfixeddeposits.R;
 import com.vinay.myfixeddeposits.model.User;
+import com.vinay.myfixeddeposits.view.dashboard.MyDashboard;
 import com.vinay.myfixeddeposits.viewmodel.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity implements TextWatcher {
@@ -37,18 +39,20 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher {
         btnLogin = findViewById(R.id.btnLogin);
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
-        loginViewModel.errorMessageUserName.observe(this, errorMessageUserName -> {
+        loginViewModel.getErrorMessageUserName().observe(this, errorMessageUserName -> {
             userNameError.setError(errorMessageUserName);
         });
 
-        loginViewModel.errorMessagePassword.observe(this, errorMessagePassword -> {
+        loginViewModel.getErrorMessagePassword().observe(this, errorMessagePassword -> {
             passwordError.setError(errorMessagePassword);
         });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginViewModel.validateUser(new User(userName.getText().toString().trim(),password.getText().toString().trim()));
+                if(loginViewModel.validateUser(new User(userName.getText().toString().trim(),password.getText().toString().trim()))) {
+                    startActivity(new Intent(getApplicationContext(), MyDashboard.class));
+                }
             }
         });
 

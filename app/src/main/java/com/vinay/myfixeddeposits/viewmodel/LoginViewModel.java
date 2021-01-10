@@ -8,8 +8,16 @@ import com.vinay.myfixeddeposits.model.User;
 public class LoginViewModel extends ViewModel {
 
     public User user;
-    public MutableLiveData<String> errorMessageUserName = new MutableLiveData<>();
-    public MutableLiveData<String> errorMessagePassword = new MutableLiveData<>();
+    private MutableLiveData<String> errorMessageUserName = new MutableLiveData<>();
+    private MutableLiveData<String> errorMessagePassword = new MutableLiveData<>();
+
+    public MutableLiveData<String> getErrorMessageUserName() {
+        return errorMessageUserName;
+    }
+
+    public MutableLiveData<String> getErrorMessagePassword() {
+        return errorMessagePassword;
+    }
 
     public boolean validateUser(User user){
         if(!user.getUserName().equals(this.user.getUserName())){
