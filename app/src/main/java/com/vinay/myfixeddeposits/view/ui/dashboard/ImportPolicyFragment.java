@@ -82,8 +82,6 @@ public class ImportPolicyFragment extends Fragment {
             StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
             StrictMode.setVmPolicy(builder.build());
             Uri uploadFileUri = data.getData();
-            Log.e("backList",uploadFileUri.getPath());
-            Log.e("backList", FileUtil.getRealPath(getContext().getApplicationContext(),uploadFileUri));
             File file = new File(FileUtil.getRealPath(getContext().getApplicationContext(),uploadFileUri));
             try {
                 importPolicyViewModel.importPolicy(file);
@@ -96,8 +94,8 @@ public class ImportPolicyFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         importPolicyViewModel = new ViewModelProvider(this).get(ImportPolicyViewModel.class);
         importPolicyViewModel.getPolicies().observe(getActivity(), new Observer<List<Policy>>() {
             @Override

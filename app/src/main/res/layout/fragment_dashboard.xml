@@ -23,17 +23,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/layout_margin_all">
+            android:layout_margin="@dimen/layout_margin_all"
+            android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:elevation="3dp">
+                android:elevation="8dp"
+                app:cardBackgroundColor="#F2F3F4"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/cardview_shadow_end_color"
                     android:orientation="vertical"
                     android:padding="@dimen/padding_10">
 
@@ -42,8 +45,8 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_gravity="center"
                             android:layout_margin="@dimen/margin_5"
                             android:src="@drawable/bank" />
@@ -58,9 +61,9 @@
                                 style="@style/TextAppearance.AppCompat.Large"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="@dimen/padding_5"
+                                android:padding="2dp"
                                 android:text="12,00,000"
-                                android:textColor="@color/primaryColor"
+                                android:textColor="@color/primaryColorShade"
                                 android:textStyle="bold" />
 
                             <com.google.android.material.textview.MaterialTextView
@@ -79,10 +82,10 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_margin="@dimen/margin_5"
-                            android:src="@drawable/xxxhdpi" />
+                            android:src="@drawable/bank" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -94,9 +97,9 @@
                                 style="@style/TextAppearance.AppCompat.Large"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="@dimen/padding_5"
+                                android:padding="2dp"
                                 android:text="12,00,000"
-                                android:textColor="@color/primaryColor"
+                                android:textColor="@color/primaryColorShade"
                                 android:textStyle="bold" />
 
                             <com.google.android.material.textview.MaterialTextView
@@ -115,10 +118,10 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_margin="@dimen/margin_5"
-                            android:src="@drawable/total" />
+                            android:src="@drawable/bank" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -130,9 +133,9 @@
                                 style="@style/TextAppearance.AppCompat.Large"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:padding="@dimen/padding_5"
+                                android:padding="2dp"
                                 android:text="12,00,000"
-                                android:textColor="@color/primaryColor"
+                                android:textColor="@color/primaryColorShade"
                                 android:textStyle="bold" />
 
                             <com.google.android.material.textview.MaterialTextView
@@ -150,6 +153,108 @@
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Interest Insights"
+                        android:textStyle="bold"
+                        android:textColor="@color/primaryColorShade"
+                        style="@style/TextAppearance.AppCompat.Large"
+                        android:gravity="center"
+                        android:layout_gravity="center"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/margin_left_15"
+                        android:entries="@array/interest_insight_filter"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="4"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@drawable/rounded_left_bg"
+                        android:text="Day"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#F2F3F4"
+                        android:text="Month"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#F2F3F4"
+                        android:text="Year"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@drawable/rounded_right_bg"
+                        android:text="Avg %"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="4">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="\u20B9 123"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="\u20B9 1234"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="\u20B9 1234"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="5 %"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

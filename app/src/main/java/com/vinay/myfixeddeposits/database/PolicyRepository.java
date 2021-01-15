@@ -2,11 +2,14 @@ package com.vinay.myfixeddeposits.database;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Room;
 
+import com.google.gson.Gson;
 import com.vinay.myfixeddeposits.model.Policy;
 
 import java.io.ObjectStreamException;
@@ -73,7 +76,8 @@ public class PolicyRepository implements Cloneable, Serializable {
         return appDatabase.daoMyFixedDeposit().getPolicy(id);
     }
 
-    public LiveData<List<Policy>> getPolicies(int id){
+    public LiveData<List<Policy>> getPolicies(){
+        Log.e("AllP = ",new Gson().toJson(appDatabase.daoMyFixedDeposit().getAllPolicies().getValue()));
         return appDatabase.daoMyFixedDeposit().getAllPolicies();
     }
 

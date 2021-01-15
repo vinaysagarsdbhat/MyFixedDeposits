@@ -9,12 +9,22 @@
         android:id="@+id/nav_dashboard"
         android:name="com.vinay.myfixeddeposits.view.ui.dashboard.DashboardFragment"
         android:label="Dashboard"
-        tools:layout="@layout/fragment_dashboard"/>
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/goToViewAllPolicy"
+            app:destination="@id/viewAllPolicy" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_import"
         android:name="com.vinay.myfixeddeposits.view.ui.dashboard.ImportPolicyFragment"
         android:label="Import Policy"
         tools:layout="@layout/import_policy_fragment"/>
+
+    <fragment
+        android:id="@+id/viewAllPolicy"
+        android:name="com.vinay.myfixeddeposits.view.ui.dashboard.PolicyListFragment"
+        android:label="Import Policy"
+        tools:layout="@layout/policy_list_fragment"/>
 
 </navigation>
