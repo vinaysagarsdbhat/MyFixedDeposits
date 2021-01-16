@@ -24,6 +24,9 @@ public interface PolicyDao{
     @Query("Select * from Policy")
     LiveData<List<Policy>> getAllPolicies();
 
+    @Query("Select * from Policy where holder LIKE :query or bankName LIKE :query or certificateNumber LIKE :query or remarks LIKE :query")
+    LiveData<List<Policy>> filterPolicies(String query);
+
     @Query("Select * from Policy where id =:policyId")
     LiveData<List<Policy>> getPolicy(int policyId);
 

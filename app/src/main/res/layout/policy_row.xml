@@ -29,38 +29,164 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="100">
+                android:orientation="vertical"
+                android:layout_marginStart="8dp">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/policyNumber"
-                    android:layout_width="0dp"
-                    android:layout_weight="100"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"
-                    android:layout_marginStart="10dp"
-                    android:text="a"/>
 
+                    android:weightSum="100">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/policyNumber"
+                        android:layout_width="0dp"
+                        android:layout_weight="100"
+                        android:layout_height="wrap_content"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/primaryColorShade"
+                        android:text="ABGRE1234DERhh"/>
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/interestRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:background="@drawable/round_backround"
+                        android:text="12.55%"/>
+
+                </LinearLayout>
 
                 <com.google.android.material.textview.MaterialTextView
-                    android:id="@+id/interestRate"
+                    android:id="@+id/bankName"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textSize="9sp"
                     android:textStyle="bold"
-                    android:textAllCaps="true"
                     android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:background="@drawable/backround_triangle"
-                    android:text="12.55%"/>
+                    android:background="@drawable/round_backround_fill"
+                    android:textColor="@color/primaryTextColor"
+                    android:text="Karnataka Bank"/>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_weight="2.3"
+                            android:src="@drawable/ic_outline_person_24"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/holder"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="15"
+                            android:gravity="start|center_vertical"
+                            android:text="10-01-2020"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="50"
+                        android:gravity="end">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="end|center_vertical"
+                            android:text="\u20B9"/>
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/maturityAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="end|center_vertical"
+                            android:text="0000"/>
+
+                    </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="6"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_outline_calendar_today_24"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/depositDate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="30"
+                        android:gravity="start|center_vertical"
+                        android:text="10-01-2020"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_gravity="center"
+                        android:layout_height="25dp"
+                        android:layout_weight="6"
+                        android:src="@drawable/ic_outline_swap_horiz_24"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/maturityDate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="30"
+                        android:gravity="start|center_vertical"
+                        android:text="10-01-2020"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_gravity="center"
+                        android:layout_height="25dp"
+                        android:layout_weight="6"
+                        android:src="@drawable/ic_outline_lock_24"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/readableDuration"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="22"
+                        android:gravity="start|center_vertical"
+                        android:layout_gravity="start"
+                        android:paddingLeft="3dp"
+                        android:text="00Y 00M"/>
+                </LinearLayout>
 
             </LinearLayout>
-
-
-
-
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

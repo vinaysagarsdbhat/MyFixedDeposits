@@ -77,8 +77,11 @@ public class PolicyRepository implements Cloneable, Serializable {
     }
 
     public LiveData<List<Policy>> getPolicies(){
-        Log.e("AllP = ",new Gson().toJson(appDatabase.daoMyFixedDeposit().getAllPolicies().getValue()));
         return appDatabase.daoMyFixedDeposit().getAllPolicies();
+    }
+
+    public LiveData<List<Policy>> filterPolicies(String query){
+        return appDatabase.daoMyFixedDeposit().filterPolicies(query);
     }
 
     @NonNull

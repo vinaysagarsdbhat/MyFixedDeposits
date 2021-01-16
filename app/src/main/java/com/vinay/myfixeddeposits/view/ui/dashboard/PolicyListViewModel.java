@@ -22,4 +22,8 @@ public class PolicyListViewModel extends AndroidViewModel {
     public LiveData<List<Policy>> getPolicyList() {
         return PolicyRepository.getInstance(getApplication()).getPolicies();
     }
+
+    public LiveData<List<Policy>> filterPolicies(String query) {
+        return PolicyRepository.getInstance(getApplication()).filterPolicies(query);
+    }
 }

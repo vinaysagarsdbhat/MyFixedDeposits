@@ -8,7 +8,10 @@ import com.google.gson.Gson;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Period;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 @Entity
 public class Policy {
@@ -171,6 +174,26 @@ public class Policy {
 
     public void setBelongsTo(String belongsTo) {
         this.belongsTo = belongsTo;
+    }
+
+    public String getReadableDuration() throws Exception{
+        String diffStr = "";
+        Calendar startCalendar = new GregorianCalendar();
+        startCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(dateOfDeposit));
+        Calendar endCalendar = new GregorianCalendar();
+        endCalendar.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(dateOfMaturity));
+
+        int diffYear = endCalendar.get(Calendar.YEAR) - startCalendar.get(Calendar.YEAR);
+        int diffMonth = endCalendar.get(Calendar.MONTH) - startCalendar.get(Calendar.MONTH);
+
+        if(diffYear>0){
+            diffStr += diffYear + "y ";
+        }
+
+        if(diffMonth>0)
+            diffStr += diffMonth + "m";
+
+        return diffStr;
     }
 
     @Override

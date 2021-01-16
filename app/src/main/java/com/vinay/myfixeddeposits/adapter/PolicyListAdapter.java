@@ -45,6 +45,23 @@ public class PolicyListAdapter extends RecyclerView.Adapter<PolicyListAdapter.Po
     public void onBindViewHolder(@NonNull PolicyViewHolder holder, int position) {
         holder.policyNumber.setText(policies.get(position).getCertificateNumber());
         holder.interestRate.setText(policies.get(position).getRateOfInterest() + "%");
+        holder.maturityAmount.setText(policies.get(position).getMaturityAmount()+"");
+        holder.holder.setText(policies.get(position).getHolder());
+        holder.depositDate.setText(policies.get(position).getReadableDateOfDeposit());
+        holder.maturityDate.setText(policies.get(position).getReadableDateOfMaturity());
+        holder.bankName.setText(policies.get(position).getBankName());
+        try {
+            holder.readableDuration.setText(policies.get(position).getReadableDuration());
+        } catch (Exception e) {
+            holder.readableDuration.setText("Err");
+            e.printStackTrace();
+        }
+    }
+
+    public void setFilter(List<Policy> policies) {
+        this.policies.clear();
+        this.policies.addAll(policies);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -54,12 +71,18 @@ public class PolicyListAdapter extends RecyclerView.Adapter<PolicyListAdapter.Po
 
     class PolicyViewHolder extends RecyclerView.ViewHolder{
 
-        MaterialTextView policyNumber,interestRate;
+        MaterialTextView policyNumber,interestRate,maturityAmount,holder,depositDate,maturityDate,readableDuration,bankName;
 
         public PolicyViewHolder(@NonNull View itemView) {
             super(itemView);
             policyNumber = itemView.findViewById(R.id.policyNumber);
             interestRate = itemView.findViewById(R.id.interestRate);
+            maturityAmount = itemView.findViewById(R.id.maturityAmount);
+            holder = itemView.findViewById(R.id.holder);
+            depositDate = itemView.findViewById(R.id.depositDate);
+            maturityDate = itemView.findViewById(R.id.maturityDate);
+            readableDuration = itemView.findViewById(R.id.readableDuration);
+            bankName = itemView.findViewById(R.id.bankName);
         }
     }
 
