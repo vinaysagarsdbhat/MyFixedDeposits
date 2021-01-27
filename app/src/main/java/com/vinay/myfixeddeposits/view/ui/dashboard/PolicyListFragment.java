@@ -25,6 +25,8 @@ import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.sqlite.db.SimpleSQLiteQuery;
@@ -184,9 +186,8 @@ public class PolicyListFragment extends Fragment{
                 });
                 return true;
             case R.id.add:
-                //showAddDialog();
-                //startActivity(new Intent(getApplicationContext(),AddNewPolicy.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                //finish();
+                NavDirections action = PolicyListFragmentDirections.goToAddNewPolicy();
+                Navigation.findNavController(getView()).navigate(action);
                 return true;
 
 

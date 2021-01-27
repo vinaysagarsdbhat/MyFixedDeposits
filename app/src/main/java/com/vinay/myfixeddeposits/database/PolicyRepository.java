@@ -35,13 +35,12 @@ public class PolicyRepository implements Cloneable, Serializable {
     private PolicyRepository(Context context){
         appDatabase = AppDatabase.getDatabase(context);
     }
-    private PolicyRepository(){}
 
     public void addPolicy(Policy policy){
         appDatabase.getExecutorService().execute(new Runnable() {
             @Override
             public void run() {
-                appDatabase.daoMyFixedDeposit().addPolicy(policy);
+                appDatabase.getPolicyDao().addPolicy(policy);
             }
         });
     }
@@ -50,7 +49,7 @@ public class PolicyRepository implements Cloneable, Serializable {
         appDatabase.getExecutorService().execute(new Runnable() {
             @Override
             public void run() {
-                appDatabase.daoMyFixedDeposit().addPolicies(policies);
+                appDatabase.getPolicyDao().addPolicies(policies);
             }
         });
     }
@@ -59,7 +58,7 @@ public class PolicyRepository implements Cloneable, Serializable {
         appDatabase.getExecutorService().execute(new Runnable() {
             @Override
             public void run() {
-                appDatabase.daoMyFixedDeposit().updatePolicy(policy);
+                appDatabase.getPolicyDao().updatePolicy(policy);
             }
         });
     }
@@ -68,25 +67,25 @@ public class PolicyRepository implements Cloneable, Serializable {
         appDatabase.getExecutorService().execute(new Runnable() {
             @Override
             public void run() {
-                appDatabase.daoMyFixedDeposit().deletePolicy(policy);
+                appDatabase.getPolicyDao().deletePolicy(policy);
             }
         });
     }
 
     public LiveData<List<Policy>> getPolicy(int id){
-        return appDatabase.daoMyFixedDeposit().getPolicy(id);
+        return appDatabase.getPolicyDao().getPolicy(id);
     }
 
     public LiveData<List<Policy>> getPolicies(){
-        return appDatabase.daoMyFixedDeposit().getAllPolicies();
+        return appDatabase.getPolicyDao().getAllPolicies();
     }
 
     public LiveData<List<Policy>> filterPolicies(String query){
-        return appDatabase.daoMyFixedDeposit().filterPolicies(query);
+        return appDatabase.getPolicyDao().filterPolicies(query);
     }
 
     public LiveData<List<Policy>> filterPolicies(SupportSQLiteQuery query){
-        return appDatabase.daoMyFixedDeposit().filterPolicies(query);
+        return appDatabase.getPolicyDao().filterPolicies(query);
     }
 
     @NonNull

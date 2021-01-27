@@ -10,15 +10,17 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
+import com.vinay.myfixeddeposits.model.Bank;
 import com.vinay.myfixeddeposits.model.Policy;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Policy.class}, version = 2, exportSchema = false)
+@Database(entities = {Policy.class, Bank.class}, version = 2, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
-    public abstract PolicyDao daoMyFixedDeposit();
+    public abstract PolicyDao getPolicyDao();
+    //public abstract BankDao bankDao();
 
 
     private static volatile AppDatabase INSTANCE;

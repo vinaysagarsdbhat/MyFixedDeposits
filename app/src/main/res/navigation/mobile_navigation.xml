@@ -25,6 +25,15 @@
         android:id="@+id/viewAllPolicy"
         android:name="com.vinay.myfixeddeposits.view.ui.dashboard.PolicyListFragment"
         android:label=""
-        tools:layout="@layout/policy_list_fragment"/>
+        tools:layout="@layout/policy_list_fragment">
+        <action
+            android:id="@+id/goToAddNewPolicy"
+            app:destination="@id/addNewPolicyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewPolicyFragment"
+        android:name="com.vinay.myfixeddeposits.view.ui.dashboard.AddNewPolicyFragment"
+        android:label="Add New Policy"
+        tools:layout="@layout/fragment_add_new_policy" />
 
 </navigation>
