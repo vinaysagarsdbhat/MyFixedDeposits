@@ -6,7 +6,9 @@ import androidx.room.Delete;
 import androidx.room.Entity;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.RawQuery;
 import androidx.room.Update;
+import androidx.sqlite.db.SupportSQLiteQuery;
 
 import com.vinay.myfixeddeposits.model.Policy;
 
@@ -26,6 +28,9 @@ public interface PolicyDao{
 
     @Query("Select * from Policy where holder LIKE :query or bankName LIKE :query or certificateNumber LIKE :query or remarks LIKE :query")
     LiveData<List<Policy>> filterPolicies(String query);
+
+    @RawQuery(observedEntities = Policy.class)
+    LiveData<List<Policy>> filterPolicies(SupportSQLiteQuery query);
 
     @Query("Select * from Policy where id =:policyId")
     LiveData<List<Policy>> getPolicy(int policyId);

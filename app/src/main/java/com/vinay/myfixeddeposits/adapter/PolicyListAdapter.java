@@ -11,8 +11,10 @@ import com.google.android.material.textview.MaterialTextView;
 import com.vinay.myfixeddeposits.R;
 import com.vinay.myfixeddeposits.model.Policy;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class PolicyListAdapter extends RecyclerView.Adapter<PolicyListAdapter.PolicyViewHolder> {
 
@@ -45,7 +47,7 @@ public class PolicyListAdapter extends RecyclerView.Adapter<PolicyListAdapter.Po
     public void onBindViewHolder(@NonNull PolicyViewHolder holder, int position) {
         holder.policyNumber.setText(policies.get(position).getCertificateNumber());
         holder.interestRate.setText(policies.get(position).getRateOfInterest() + "%");
-        holder.maturityAmount.setText(policies.get(position).getMaturityAmount()+"");
+        holder.maturityAmount.setText(NumberFormat.getCurrencyInstance(new Locale("en","IN")).format(policies.get(position).getMaturityAmount()).substring(0,NumberFormat.getCurrencyInstance(new Locale("en","IN")).format(policies.get(position).getMaturityAmount()).length()-3));
         holder.holder.setText(policies.get(position).getHolder());
         holder.depositDate.setText(policies.get(position).getReadableDateOfDeposit());
         holder.maturityDate.setText(policies.get(position).getReadableDateOfMaturity());

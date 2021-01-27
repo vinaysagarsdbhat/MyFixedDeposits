@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/viewAllPolicy"
         android:name="com.vinay.myfixeddeposits.view.ui.dashboard.PolicyListFragment"
-        android:label="Import Policy"
+        android:label=""
         tools:layout="@layout/policy_list_fragment"/>
 
 </navigation>

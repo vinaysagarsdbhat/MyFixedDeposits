@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.room.Room;
+import androidx.sqlite.db.SupportSQLiteQuery;
 
 import com.google.gson.Gson;
 import com.vinay.myfixeddeposits.model.Policy;
@@ -81,6 +82,10 @@ public class PolicyRepository implements Cloneable, Serializable {
     }
 
     public LiveData<List<Policy>> filterPolicies(String query){
+        return appDatabase.daoMyFixedDeposit().filterPolicies(query);
+    }
+
+    public LiveData<List<Policy>> filterPolicies(SupportSQLiteQuery query){
         return appDatabase.daoMyFixedDeposit().filterPolicies(query);
     }
 

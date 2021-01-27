@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import androidx.sqlite.db.SupportSQLiteQuery;
 
 import com.vinay.myfixeddeposits.database.PolicyRepository;
 import com.vinay.myfixeddeposits.model.Policy;
@@ -26,4 +27,9 @@ public class PolicyListViewModel extends AndroidViewModel {
     public LiveData<List<Policy>> filterPolicies(String query) {
         return PolicyRepository.getInstance(getApplication()).filterPolicies(query);
     }
+
+    public LiveData<List<Policy>> filterPolicies(SupportSQLiteQuery query) {
+        return PolicyRepository.getInstance(getApplication()).filterPolicies(query);
+    }
+
 }
